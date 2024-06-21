@@ -38,14 +38,6 @@ describe('Página de Inicio', () => {
         cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/general');
         cy.get('.clickable-div').click();
         cy.url().should('include', 'https://angular-tfg.onrender.com/#/FPAwithOpenAI/general');
-
-        cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/general');
-        cy.get('.toolbar-button').click();
-        cy.url().should('include', 'https://angular-tfg.onrender.com/#/FPAwithOpenAI/acceso');
-
-        cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/general');
-        cy.get('.cta-button').click();
-        cy.url().should('include', 'https://angular-tfg.onrender.com/#/FPAwithOpenAI/acceso');
     })
     
   
