@@ -3,7 +3,7 @@ describe('Página de Inicio', () => {
     it('Informacion general', () => {
         cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/general');
 
-        cy.get('h1').contains("Bienvenido a el universo de FPA")
+        cy.get('h1').contains("Bienvenido al universo de FPA")
         cy.get('.header > p').contains("Automatiza la técnica FPA de IFPUG con múltiples ventajas usando ChatGPT");
     })
 
