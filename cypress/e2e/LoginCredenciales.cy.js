@@ -42,7 +42,7 @@ describe('Test de Login', () => {
     cy.get('[type="password"]').type('ggg');
     cy.get('.action-button').click();
 
-    cy.get('.error-modal').contains("La contraseña o el email/nombre de usuario introducidos no son válidos");
+    cy.get('.error-modal').contains("La contraseña o el email/nombre de usuario introducidos no son válidos.");
   })
 
 })
