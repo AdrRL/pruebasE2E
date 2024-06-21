@@ -1,57 +1,48 @@
 describe('Test de Login', () => {
   
-  it('Login correctamente', () => {
-    cy.visit('http://localhost:4200');
-    cy.get('[routerlink="/inicio-sesion"]').contains("Iniciar Sesión");
-    cy.get('[routerlink="/registro"]').contains("Registrarse");
-    cy.get('.auth-links > a:nth-child(1)').click();
-    cy.get('#email').click();
-    cy.get('#email').type('Adriancortesmunoz@gmail.com');
-    cy.get('#contrasena').click();
-    cy.get('#contrasena').type('12345');
-    cy.get('button:nth-child(3)').click();
+  it('Login correcto', () => {
+    cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/acceso');
+
+    cy.get('[type="text"]').click();
+    cy.get('[type="text"]').type('ggg');
+    cy.get('[type="password"]').click();
+    cy.get('[type="password"]').type('ggg');
+    cy.get('.action-button').click();
     cy.get('.success-modal').contains("¡Inicio de sesión exitoso!");
-    cy.get('.ng-submitted').submit();
-    cy.get('[routerlink="/opciones/mapa"]').contains("Mapa");
-    cy.get('[routerlink="/opciones/perfil"]').contains("Perfil");
-    cy.get('.exit-button').contains("Salir");
+
+    cy.url().should('include', 'https://angular-tfg.onrender.com/#/FPAwithOpenAI/general');
   })
 
   it('Falta un campo', () => {
-    cy.visit('http://localhost:4200');
-    cy.get('.auth-links > a:nth-child(1)').click();
-    cy.get('#email').click();
-    cy.get('#email').type('Adriancortesmunoz@gmail.com');
-    cy.get('button:nth-child(3)').click();
-    cy.get('.error-modal').contains("¡Error! Introduzca todos los datos correctamente.");
-    cy.get('.ng-submitted').submit();
+    cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/acceso');
+
+    cy.get('[type="text"]').click();
+    cy.get('[type="text"]').type('ggg');
+    cy.get('.action-button').click();
+
+    cy.get('.error-modal').contains("¡Error! Por favor, complete todos los campos.");
+    cy.url().should('include', 'https://angular-tfg.onrender.com/#/FPAwithOpenAI/acceso');
+
+    cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/acceso');
+
+    cy.get('[type="password"]').click();
+    cy.get('[type="password"]').type('ggg');
+    cy.get('.action-button').click();
+
+    cy.get('.error-modal').contains("¡Error! Por favor, complete todos los campos.");
+    cy.url().should('include', 'https://angular-tfg.onrender.com/#/FPAwithOpenAI/acceso');
   })
 
-  it('No coincide', () => {
-    cy.visit('http://localhost:4200');
-    cy.get('.auth-links > a:nth-child(1)').click();
-    cy.get('#email').click();
-    cy.get('#email').type('Adriancortesmunoz@gmail.com');
-    cy.get('#contrasena').click();
-    cy.get('#contrasena').type('1234');
-    cy.get('button:nth-child(3)').click();
-    cy.get('.error-modal').contains("La contraseña o el email introducido no es válido");
-    cy.get('.ng-submitted').submit();
-  })
+  it('No coinciden los datos', () => {
+    cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/acceso');
 
-  it('Sale del Login correctamente', () => {
-    cy.visit('http://localhost:4200');
-    cy.get('.auth-links > a:nth-child(1)').click();
-    cy.get('#email').click();
-    cy.get('#email').type('Adriancortesmunoz@gmail.com');
-    cy.get('#contrasena').click();
-    cy.get('#contrasena').type('12345');
-    cy.get('button:nth-child(3)').click();
-    cy.get('.success-modal').contains("¡Inicio de sesión exitoso!");
-    cy.get('.ng-submitted').submit();
-    cy.get('.exit-button').click();
-    cy.get('[routerlink="/inicio-sesion"]').contains("Iniciar Sesión");
-    cy.get('[routerlink="/registro"]').contains("Registrarse");
+    cy.get('[type="text"]').click();
+    cy.get('[type="text"]').type('g');
+    cy.get('[type="password"]').click();
+    cy.get('[type="password"]').type('ggg');
+    cy.get('.action-button').click();
+
+    cy.get('.error-modal').contains("La contraseña o el email/nombre de usuario introducidos no son válidos");
   })
 
 })
