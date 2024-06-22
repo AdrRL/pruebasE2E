@@ -24,6 +24,9 @@ describe('Página de Inicio', () => {
         cy.get('.feature.fade-in > p').contains("Utiliza el poder de ChatGPT para tus cálculos.");
         cy.get('.feature.slide-in-right > h3').contains("Resultados Precisos");
         cy.get('.feature.slide-in-right > p').contains("Obtén resultados precisos y detallados con solo 1 botón.");
+
+        cy.get('.success-modal').should('not.exist');
+        cy.get('.error-modal').should('not.exist');
     })
 
     it('Imágenes', () => {

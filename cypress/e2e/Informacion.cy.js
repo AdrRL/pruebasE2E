@@ -17,6 +17,9 @@ describe('Información', () => {
         cy.get('.name').contains("ADRIÁN RODRÍGUEZ LÓPEZ");
         cy.get('.buttons > :nth-child(1)').contains("Adrián Rodríguez López");
         cy.get('.buttons > :nth-child(2)').contains("Adrirodlop25@gmail.com");
+
+        cy.get('.success-modal').should('not.exist');
+        cy.get('.error-modal').should('not.exist');
     });
 
     it('Imágenes', () => {
