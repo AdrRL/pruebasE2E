@@ -1,5 +1,19 @@
 describe('Test de Login', () => {
   
+  it('Contenido', () => {
+    cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/acceso');
+
+    cy.get('.active').should('have.text', 'Iniciar Sesión');
+    cy.get('.action-button').should('have.text', 'Acceder');
+    cy.get('h2').contains("Iniciar Sesión");
+
+    cy.get('.tabs > :nth-child(2)').click();
+
+    cy.get('.active').should('have.text', 'Registrarse');
+    cy.get('.action-button').should('have.text', 'Registrarse');
+    cy.get('h2').contains("Registrarse");
+  })
+  
   it('Login correcto', () => {
     cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/acceso');
 

@@ -5,6 +5,8 @@ describe('Página de Inicio', () => {
 
         cy.get('h1').contains("Bienvenido al universo de FPA")
         cy.get('.header > p').contains("Automatiza la técnica FPA de IFPUG con múltiples ventajas usando ChatGPT");
+
+        cy.get('.cta-button').should('have.text', 'Comienza Ahora');
     })
 
     it('Casillas', () => {
