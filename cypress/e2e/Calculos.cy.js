@@ -19,7 +19,7 @@ describe('Test de la página de cálculos', () => {
 
     cy.get('.button-container > :nth-child(1)').contains('Calcular Funciones');
     cy.get('.button-container > :nth-child(2)').contains('Calcular Complejidad');
-    cy.get('.button-container > :nth-child(3)').contains('Historial');
+    cy.get('.button-container > :nth-child(3)').contains('Guardadas');
   });
 
   it('No Api-Key', () => {
@@ -51,12 +51,16 @@ describe('Test de la página de cálculos', () => {
 
     cy.get('.modal-content').should('exist');
     cy.get('h2').contains("Ayuda")
-    cy.get(':nth-child(3) > strong').contains("Cuadro de texto")
-    cy.get('.modal-content > :nth-child(3)').contains("Cuadro de texto: Aquí puede escribir el enunciado del que desea obtener información.")
-    cy.get(':nth-child(4) > strong').contains("Botón \"Calcular Funciones\"")
-    cy.get('.modal-content > :nth-child(4)').contains("Botón \"Calcular Funciones\": Detecta las funciones de datos y transaccionales encontradas en el enunciado.")
-    cy.get(':nth-child(5) > strong').contains("Botón \"Calcular Complejidad\"")
-    cy.get('.modal-content > :nth-child(5)').contains("Botón \"Calcular Complejidad\": Calcula la complejidad de las funciones encontradas en el enunciado.")
+    cy.get(':nth-child(3) > strong').contains("Cuadro de APIKey");
+    cy.get('.modal-content > :nth-child(3)').contains("Aquí se debe escribir la API de ChatGPT del usuario.");
+    cy.get(':nth-child(4) > strong').contains("Cuadro de texto")
+    cy.get('.modal-content > :nth-child(4)').contains("Cuadro de texto: Aquí puede escribir el enunciado del que desea obtener información.")
+    cy.get(':nth-child(5) > strong').contains("Botón \"Calcular Funciones\"")
+    cy.get('.modal-content > :nth-child(5)').contains("Botón \"Calcular Funciones\": Detecta las funciones de datos y transaccionales encontradas en el enunciado.")
+    cy.get(':nth-child(6) > strong').contains("Botón \"Calcular Complejidad\"")
+    cy.get('.modal-content > :nth-child(6)').contains("Botón \"Calcular Complejidad\": Calcula la complejidad de las funciones encontradas en el enunciado.")
+    cy.get(':nth-child(7) > strong').contains("Botón \"Guardadas\"")
+    cy.get('.modal-content > :nth-child(7)').contains("Recuperación de anteriores cálculos.");
 
     cy.get('.close').click()
   });
@@ -133,7 +137,7 @@ describe('Test de la página de cálculos', () => {
     cy.get('pre').should('exist');
   });
 
-  it('Historial', () => {
+  it('Historial de guardadas', () => {
     cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/principal');  
 
     cy.get('.button-container > :nth-child(3)').click();

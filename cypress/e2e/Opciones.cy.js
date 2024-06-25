@@ -43,7 +43,7 @@ describe('Página de Inicio', () => {
         cy.get('.clickable-div > img').should('be.visible').and('have.attr', 'src').should('include', 'assets/OpenAI-logo.png');
 
         cy.get(':nth-child(3) > .button-icon').should('be.visible').and('have.attr', 'src').should('include', 'assets/Casa.png');
-        cy.get('.toolbar > :nth-child(3)').contains("Inicio");
+        cy.get('.toolbar > :nth-child(3)').contains("Cálculos");
 
         cy.get(':nth-child(4) > .button-icon').should('be.visible').and('have.attr', 'src').should('include', 'assets/Info.png');
         cy.get('.toolbar > :nth-child(4)').contains("¿Quiénes somos?");
