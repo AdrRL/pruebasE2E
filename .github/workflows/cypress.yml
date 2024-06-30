@@ -27,6 +27,7 @@ jobs:
       - name: Start the server
         run: npm start &
         env:
+          APIKEY: ${{ secrets.APIKEY }}
           CI: true
 
       - name: Run Cypress tests
