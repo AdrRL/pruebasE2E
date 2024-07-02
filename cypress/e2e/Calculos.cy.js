@@ -38,7 +38,7 @@ describe('Test de la página de cálculos', () => {
     cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/principal');  
 
     cy.get('#apiKey').click();
-    cy.get('#apiKey').type('APIKEYDEEJEMPLO');
+    cy.get('#apiKey').type('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');
 
     cy.get('.button-container > :nth-child(1)').click();
     cy.get('.error-modal').contains("El contenido no puede ser vacío.");
@@ -69,7 +69,7 @@ describe('Test de la página de cálculos', () => {
     cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/principal');  
 
     cy.get('#apiKey').click();
-    cy.get('#apiKey').type('APIKEYDEEJEMPLO');
+    cy.get('#apiKey').type('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');
     cy.get('.user-input').click();
     cy.get('.user-input').type("En la página principal de la esiiab, facultad universitaria de informática, tenemos un apartado de profesores, almacenados en un archivo lógico interno denominado profesores, donde al pulsar se muestran lo que contienen: el departamento al que pertenecen (un profesor solo puede pertenecer a un único departamento), el curso actual, sus horarios de tutorías en el 1 cuatrimestre (relación 1:N), sus horarios de tutorías en el 2 cuatrimestre, su nombre completo (dato derivado calculado con su nombre y apellidos), y su despacho.");
 
@@ -95,7 +95,7 @@ describe('Test de la página de cálculos', () => {
     cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/principal');  
 
     cy.get('#apiKey').click();
-    cy.get('#apiKey').type('APIKEYDEEJEMPLO');
+    cy.get('#apiKey').type('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');
     cy.get('.user-input').click();
     cy.get('.user-input').type("En la página principal de la esiiab, facultad universitaria de informática, tenemos un apartado de profesores, almacenados en un archivo lógico interno denominado profesores, donde al pulsar se muestran lo que contienen: el departamento al que pertenecen (un profesor solo puede pertenecer a un único departamento), el curso actual, sus horarios de tutorías en el 1 cuatrimestre (relación 1:N), sus horarios de tutorías en el 2 cuatrimestre, su nombre completo (dato derivado calculado con su nombre y apellidos), y su despacho.");
 
