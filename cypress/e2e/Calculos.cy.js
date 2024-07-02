@@ -38,7 +38,7 @@ describe('Test de la página de cálculos', () => {
     cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/principal');  
 
     cy.get('#apiKey').click();
-    cy.get('#apiKey').type('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');
+    cy.get('#apiKey').type('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');
 
     cy.get('.button-container > :nth-child(1)').click();
     cy.get('.error-modal').contains("El contenido no puede ser vacío.");
@@ -69,7 +69,7 @@ describe('Test de la página de cálculos', () => {
     cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/principal');  
 
     cy.get('#apiKey').click();
-    cy.get('#apiKey').type('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');
+    cy.get('#apiKey').type('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');
     cy.get('.user-input').click();
     cy.get('.user-input').type("En la página principal de la esiiab, facultad universitaria de informática, tenemos un apartado de profesores, almacenados en un archivo lógico interno denominado profesores, donde al pulsar se muestran lo que contienen: el departamento al que pertenecen (un profesor solo puede pertenecer a un único departamento), el curso actual, sus horarios de tutorías en el 1 cuatrimestre (relación 1:N), sus horarios de tutorías en el 2 cuatrimestre, su nombre completo (dato derivado calculado con su nombre y apellidos), y su despacho.");
 
@@ -79,8 +79,8 @@ describe('Test de la página de cálculos', () => {
     cy.get('.download-buttons > :nth-child(1) > img').should('be.visible').and('have.attr', 'src').should('include', 'assets/Save.jpg');
     cy.get('.download-buttons > :nth-child(1)').contains("Guardar");
 
-    cy.get(':nth-child(2) > img').should('be.visible').and('have.attr', 'src').should('include', 'assets/Download.jpg');
-    cy.get('.download-buttons > :nth-child(2)').contains("Descargar");
+    cy.get('.download-buttons > :nth-child(2) > img').should('be.visible').and('have.attr', 'src').should('include', 'assets/Download.jpg');
+    cy.get('.download-buttons > :nth-child(2)').contains("Descargar JSON");
 
     cy.get('.content > :nth-child(3) > :nth-child(1)').contains("Resumen de Funciones");
     cy.get('thead > tr > :nth-child(1)').should('have.text', 'Entidad');
@@ -95,7 +95,7 @@ describe('Test de la página de cálculos', () => {
     cy.visit('https://angular-tfg.onrender.com/#/FPAwithOpenAI/principal');  
 
     cy.get('#apiKey').click();
-    cy.get('#apiKey').type('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');
+    cy.get('#apiKey').type('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');
     cy.get('.user-input').click();
     cy.get('.user-input').type("En la página principal de la esiiab, facultad universitaria de informática, tenemos un apartado de profesores, almacenados en un archivo lógico interno denominado profesores, donde al pulsar se muestran lo que contienen: el departamento al que pertenecen (un profesor solo puede pertenecer a un único departamento), el curso actual, sus horarios de tutorías en el 1 cuatrimestre (relación 1:N), sus horarios de tutorías en el 2 cuatrimestre, su nombre completo (dato derivado calculado con su nombre y apellidos), y su despacho.");
 
@@ -105,8 +105,8 @@ describe('Test de la página de cálculos', () => {
     cy.get('.download-buttons > :nth-child(1) > img').should('be.visible').and('have.attr', 'src').should('include', 'assets/Save.jpg');
     cy.get('.download-buttons > :nth-child(1)').contains("Guardar");
 
-    cy.get(':nth-child(2) > img').should('be.visible').and('have.attr', 'src').should('include', 'assets/Download.jpg');
-    cy.get('.download-buttons > :nth-child(2)').contains("Descargar");
+    cy.get('.download-buttons > :nth-child(2) > img').should('be.visible').and('have.attr', 'src').should('include', 'assets/Download.jpg');
+    cy.get('.download-buttons > :nth-child(2)').contains("Descargar JSON");
 
     cy.get('.content > :nth-child(3) > :nth-child(1)').contains("Resumen de Complejidades");
 
@@ -135,6 +135,20 @@ describe('Test de la página de cálculos', () => {
 
     cy.get('.content > :nth-child(3) > :nth-child(4)').contains("JSON");
     cy.get('pre').should('exist');
+
+    cy.get('.chart-container > .icon').click();
+
+    cy.get('.modal-content').should('exist');
+    cy.get('.modal-content > h2').contains("¿Qué significa la productividad?")
+    cy.get(':nth-child(3) > strong').contains("Alta");
+    cy.get('.modal-content > :nth-child(3)').contains("Alta: Se aplica a proyectos de mantenimiento donde el equipo tiene un buen conocimiento del sistema. En estos casos, la experiencia y familiaridad con el sistema permiten una mayor eficiencia, resultando en una mayor productividad (menos horas necesarias por Punto de Función).");
+    cy.get(':nth-child(4) > strong').contains("Media")
+    cy.get('.modal-content > :nth-child(4)').contains("Media: Esta es la categoría estándar para proyectos típicos. Representa la productividad promedio esperada en condiciones normales de trabajo y sin particularidades extremas en cuanto a complejidad o conocimiento del sistema.")
+    cy.get(':nth-child(5) > strong').contains("Baja")
+    cy.get('.modal-content > :nth-child(5)').contains("Baja: Esta categoría se aplica a proyectos con requisitos no funcionales complejos, estos suelen tener una mayor complejidad técnica o de gestión, lo que se traduce en una menor productividad (mayor cantidad de horas necesarias por Punto de Función).")
+    cy.get('.modal-content > :nth-child(6)').contains("Según los datos obtenidos del estudio publicado por Serpro (https://www.gov.br/pgfn/pt-br/acesso-a-informacao/tecnologia-da-informacao/Roteiro_Contagem_PF_SERPRO_%207.pdf)");
+
+    cy.get('.close').click()
   });
 
   it('Historial de guardadas', () => {
@@ -143,6 +157,14 @@ describe('Test de la página de cálculos', () => {
     cy.get('.button-container > :nth-child(3)').click();
     cy.get('h2').contains("Historial de Registros")
     cy.get('.modal-content-record').should('exist');
+
+    cy.get(':nth-child(1) > .record-item > .edit-button').contains("Cambiar nombre");
+    cy.get(':nth-child(1) > .record-item > .edit-button > img').should('be.visible').and('have.attr', 'src').should('include', 'assets/Edit.png');
+
+    cy.get(':nth-child(1) > .record-item > .delete-button').contains("Borrar registro");
+    cy.get(':nth-child(1) > .record-item > .delete-button > img').should('be.visible').and('have.attr', 'src').should('include', 'assets/Delete.png');
+
+
   });
 
 });
